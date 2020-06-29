@@ -11,15 +11,17 @@ import org.springframework.stereotype.Repository;
 import com.bank.entity.AccountHolderEntity;
 import com.bank.model.AccountHolder;
 
-@Repository(value = "acoountHolderDao")
+@Repository(value = "accountHolderDao")
 public class AccountHolderDaoImpl implements AccountHolderDao{
 
-	@PersistenceContext
+	@Autowired
 	EntityManager entityManager;
 	
 	@Override
 	public AccountHolder getAccountHolderByAccountHolderId(Integer accountHolderId) {
 		// TODO Auto-generated method stub
+		
+	
 		
 		AccountHolderEntity accountHolderEntity=entityManager.find(AccountHolderEntity.class, accountHolderId);
 		

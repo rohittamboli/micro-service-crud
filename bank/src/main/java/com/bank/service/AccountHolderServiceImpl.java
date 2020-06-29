@@ -19,14 +19,14 @@ public class AccountHolderServiceImpl implements AccountHolderService{
 	@Override
 	public AccountHolder getAccountHolderByAccountHolderId(Integer accountHolderId) {
 		// TODO Auto-generated method stub
-		
+	
 		
 		AccountHolder accountHolder = new AccountHolder();
 		if(accountHolderId!=null) {
 			accountHolder=accountHolderDao.getAccountHolderByAccountHolderId(accountHolderId);
 		}
 		
-		System.out.println(accountHolder.getFirstName());
+		
 		return accountHolder;
 	}
 

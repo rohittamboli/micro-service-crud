@@ -50,13 +50,13 @@ public class AccountApi {
 		return responseEntity;
 	}
 	
-	@PostMapping("/deleteAccount/Account")
-	public ResponseEntity<String> deleteAccountHolder(@RequestBody Account account){
+	@PostMapping("/deleteAccount/{AccountId}")
+	public ResponseEntity<String> deleteAccountHolder(@PathVariable Integer accountId){
 	
 		ResponseEntity<String> responseEntity=null;
 		String message=null;
 		
-		accountService.addNewAccount(account);
+		accountService.deleteAccount(accountId);
 		
 		message=environment.getProperty("ACCOUNT_API.SUCCESSFUL_DELETION");
 		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);

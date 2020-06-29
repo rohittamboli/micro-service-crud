@@ -28,12 +28,14 @@ public class AccountHolderApi {
 	
 	@GetMapping("/getAccountHolder/{accountHolderId}")
 	public ResponseEntity<AccountHolder> fetchAccountHolder(@PathVariable Integer accountHolderId){
-		
+	
 		ResponseEntity<AccountHolder> responseEntity=null;
 	
 		AccountHolder accountHolder=accountHolderService.getAccountHolderByAccountHolderId(accountHolderId);
 		
 		responseEntity=new ResponseEntity<AccountHolder>(accountHolder, HttpStatus.OK);
+		
+		
 		
 		return responseEntity;
 		
