@@ -1,12 +1,16 @@
 package com.bank.entity;
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,7 +34,9 @@ public class AccountHolderEntity {
 	@Column(name="ADDRESS")
 	private String address;
 	
-	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="ACCOUNT_HOLDER_ID")
+	private List<AccountEntity> accountEntities;
 	
 
 	public Integer getAccountHolderId() {
@@ -71,6 +77,14 @@ public class AccountHolderEntity {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public List<AccountEntity> getAccountEntities() {
+		return accountEntities;
+	}
+
+	public void setAccountEntities(List<AccountEntity> accountEntities) {
+		this.accountEntities = accountEntities;
 	}
 
 

@@ -1,21 +1,21 @@
 package com.bank.model;
 
-import java.util.List;
 
 public class Account {
 	
 	//private Integer accountHolderId;
 	private Integer accountId;
 	private Integer balance;
-	private List<AccountHolder> accountHolders;
+	private Integer accountNumber;
 	
 	
 	
-	public List<AccountHolder> getAccountHolders() {
-		return accountHolders;
+	
+	public Integer getAccountNumber() {
+		return accountNumber;
 	}
-	public void setAccountHolders(List<AccountHolder> accountHolders) {
-		this.accountHolders = accountHolders;
+	public void setAccountNumber(Integer accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	public Integer getAccountId() {
 		return accountId;

@@ -1,5 +1,8 @@
 package com.bank.model;
 
+import java.util.List;
+
+
 public class AccountHolder {
 
 	private Integer accountHolderId;
@@ -7,6 +10,9 @@ public class AccountHolder {
 	private String lastName;
 	private String email;
 	private String address;
+	
+	private List<Account> accounts;
+
 
 	public Integer getAccountHolderId() {
 		return accountHolderId;
@@ -37,6 +43,12 @@ public class AccountHolder {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
 	}
 	
 	

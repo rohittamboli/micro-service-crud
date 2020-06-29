@@ -50,7 +50,7 @@ public class AccountApi {
 		return responseEntity;
 	}
 	
-	@PostMapping("/deleteAccount/{AccountId}")
+	@PostMapping("/deleteAccount/{accountId}")
 	public ResponseEntity<String> deleteAccountHolder(@PathVariable Integer accountId){
 	
 		ResponseEntity<String> responseEntity=null;
