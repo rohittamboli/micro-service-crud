@@ -9,4 +9,6 @@ public interface AccountHolderDao {
 	public void addNewAccountHolder(AccountHolder accountHolder);
 	
 	public void deleteAccountHolder(Integer accountHolderId);
+	
+	public void updateAccountHolder(Integer accountHolderId,String emailId);
 }

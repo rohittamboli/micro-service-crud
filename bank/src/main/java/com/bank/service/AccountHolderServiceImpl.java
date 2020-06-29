@@ -46,4 +46,12 @@ public class AccountHolderServiceImpl implements AccountHolderService{
 			accountHolderDao.deleteAccountHolder(accountHolderId);
 	}
 
+	@Override
+	public void updateAccountHolder(Integer accountHolderId, String emailId) {
+		// TODO Auto-generated method stub
+		
+		accountHolderDao.updateAccountHolder(accountHolderId, emailId);
+		
+	}
+
 }

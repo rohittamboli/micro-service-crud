@@ -45,4 +45,12 @@ public class AccountServiceImpl implements AccountService{
 		
 	}
 
+	@Override
+	public void updateAccount(Integer accountId, Integer balance) {
+		// TODO Auto-generated method stub
+		
+		accountDao.updateAccount(accountId, balance);
+		
+	}
+
 }

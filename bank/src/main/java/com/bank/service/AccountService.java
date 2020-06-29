@@ -9,4 +9,6 @@ public interface AccountService {
 	
 	public void deleteAccount(Integer accountId);
 	
+	public void updateAccount(Integer accountId,Integer balance);
+
 }

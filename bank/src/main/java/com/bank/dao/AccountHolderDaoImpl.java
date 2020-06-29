@@ -92,4 +92,14 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 		entityManager.remove(accountHolderEntity);
 	}
 
+	@Override
+	public void updateAccountHolder(Integer accountHolderId,String emailId) {
+		// TODO Auto-generated method stub
+		
+		
+		AccountHolderEntity accountHolderEntity=entityManager.find(AccountHolderEntity.class, accountHolderId);
+		
+		accountHolderEntity.setEmail(emailId);
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,6 +66,19 @@ public class AccountHolderApi {
 		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);
 		return responseEntity;
 	
+	}
+	
+	@PutMapping("updateAccountHolder/accountHolder/{accountHolderId}")
+	public ResponseEntity<String> updateAccountHolder(@RequestBody AccountHolder  accountHolder,@PathVariable Integer accountHolderId){
+		
+		ResponseEntity<String> responseEntity=null;
+		String message=null;
+		
+		accountHolderService.updateAccountHolder(accountHolderId, accountHolder.getEmail());
+		
+		message=environment.getProperty("ACCOUNTHOLDER_API.SUCCESSFUL_UPDATION");
+		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);
+		return responseEntity;
 	}
 	
 }

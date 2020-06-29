@@ -58,4 +58,13 @@ public class AccountDaoImpl implements AccountDao{
 		entityManager.remove(accountEntity);
 	}
 
+	@Override
+	public void updateAccount(Integer accountId, Integer balance) {
+		// TODO Auto-generated method stub
+		
+		AccountEntity accountEntity=entityManager.find(AccountEntity.class, accountId);
+		accountEntity.setBalance(balance);
+		
+	}
+
 }

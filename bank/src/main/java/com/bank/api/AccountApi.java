@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -64,5 +65,16 @@ public class AccountApi {
 		return responseEntity;
 	}
 	
-	
+	@PutMapping("/updateAccount/account/{accountId}")
+	public ResponseEntity<String> updateAccountHolder(@RequestBody Account account, @PathVariable Integer accountId){
+		ResponseEntity<String> responseEntity=null;
+		String message=null;
+		
+		accountService.updateAccount(accountId, account.getBalance());
+		
+		message=environment.getProperty("ACCOUNT_API.SUCCESSFUL_DELETION");
+		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);
+		
+		return responseEntity;
+	}
 	}
