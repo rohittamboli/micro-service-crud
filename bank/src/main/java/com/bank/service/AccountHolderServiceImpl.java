@@ -47,10 +47,18 @@ public class AccountHolderServiceImpl implements AccountHolderService{
 	}
 
 	@Override
-	public void updateAccountHolder(Integer accountHolderId, String emailId) {
+	public void updateAccountHolder(Integer accountHolderId, AccountHolder accountHolder) {
 		// TODO Auto-generated method stub
 		
-		accountHolderDao.updateAccountHolder(accountHolderId, emailId);
+		accountHolderDao.updateAccountHolder(accountHolderId,  accountHolder);
+		
+	}
+
+	@Override
+	public void patchAccountHolder(Integer accountHolderId, AccountHolder accountHolder) {
+		// TODO Auto-generated method stub
+		
+		accountHolderDao.patchAccountHolder(accountHolderId, accountHolder);
 		
 	}
 

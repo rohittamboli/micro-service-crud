@@ -9,6 +9,7 @@ public interface AccountHolderService {
 	
 	public void deleteAccountHolder(Integer accountHolderId);
 
-	public void updateAccountHolder(Integer accountHolderId,String emailId);
-
+	public void updateAccountHolder(Integer accountHolderId,AccountHolder accountHolder);
+	
+	public void patchAccountHolder(Integer accountHolderId,AccountHolder accountHolder);
 }

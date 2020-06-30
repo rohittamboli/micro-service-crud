@@ -25,9 +25,9 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 	public AccountHolder getAccountHolderByAccountHolderId(Integer accountHolderId) {
 		// TODO Auto-generated method stub
 		
-		List<AccountEntity> accountEntities=new ArrayList();
+		List<AccountEntity> accountEntities=new ArrayList<AccountEntity>();
 		
-		List<Account> accountList=new ArrayList();
+		List<Account> accountList=new ArrayList<Account>();
 		AccountHolderEntity accountHolderEntity=entityManager.find(AccountHolderEntity.class, accountHolderId);
 		
 	
@@ -56,9 +56,9 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 	public void addNewAccountHolder(AccountHolder accountHolder) {
 		// TODO Auto-generated method stub
 		
-		List<AccountEntity> accountEntities=new ArrayList();
+		List<AccountEntity> accountEntities=new ArrayList<AccountEntity> ();
 		
-		List<Account> accountList=new ArrayList();
+		List<Account> accountList=new ArrayList<Account>();
 		
 		AccountHolderEntity accountHolderEntity=new AccountHolderEntity();
 		//accountHolderEntity.setAccountHolderId(accountHolder.getAccountHolderId());
@@ -93,13 +93,38 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 	}
 
 	@Override
-	public void updateAccountHolder(Integer accountHolderId,String emailId) {
+	public void updateAccountHolder(Integer accountHolderId,AccountHolder accountHolder) {
 		// TODO Auto-generated method stub
 		
+		List<AccountEntity> accountEntities=new ArrayList<AccountEntity> ();
 		
+		List<Account> accountList=new ArrayList<Account>();
 		AccountHolderEntity accountHolderEntity=entityManager.find(AccountHolderEntity.class, accountHolderId);
+		accountHolderEntity.setFirstName(accountHolder.getFirstName());
+		accountHolderEntity.setLastName(accountHolder.getLastName());
+		accountHolderEntity.setEmail(accountHolder.getEmail());
+		accountHolderEntity.setAddress(accountHolder.getAddress());
 		
-		accountHolderEntity.setEmail(emailId);
+		accountList=accountHolder.getAccounts();
+		
+		for(Account account:accountList) {
+			AccountEntity accountEntity=new AccountEntity();
+			//accountEntity.setAccountId(account.getAccountId());
+			accountEntity.setAccountNumber(account.getAccountNumber());
+			accountEntity.setBalance(account.getBalance());
+			
+			
+			accountEntities.add(accountEntity);
+		}
+		accountHolderEntity.setAccountEntities(accountEntities);
+	}
+
+	@Override
+	public void patchAccountHolder(Integer accountHolderId, AccountHolder accountHolder) {
+		// TODO Auto-generated method stub
+		AccountHolderEntity accountHolderEntity=entityManager.find(AccountHolderEntity.class, accountHolderId);
+		accountHolderEntity.setEmail(accountHolder.getEmail());
+
 	}
 
 }

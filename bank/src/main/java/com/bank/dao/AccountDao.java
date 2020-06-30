@@ -9,9 +9,9 @@ public interface AccountDao {
 	
 	public void deleteAccount(Integer accountId);
 	
-	public void updateAccount(Integer accountId,Integer balance);
+	public void updateAccount(Integer accountId,Account account);
 	
 	
-	
+	public void patchAccount(Integer accountId,Integer balance);
 	
 }

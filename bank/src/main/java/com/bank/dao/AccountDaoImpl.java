@@ -56,7 +56,17 @@ public class AccountDaoImpl implements AccountDao{
 	}
 
 	@Override
-	public void updateAccount(Integer accountId, Integer balance) {
+	public void updateAccount(Integer accountId,Account account) {
+		// TODO Auto-generated method stub
+		
+		AccountEntity accountEntity=entityManager.find(AccountEntity.class, accountId);
+		accountEntity.setBalance(account.getBalance());
+		accountEntity.setAccountNumber(account.getAccountNumber());
+		
+	}
+
+	@Override
+	public void patchAccount(Integer accountId, Integer balance) {
 		// TODO Auto-generated method stub
 		
 		AccountEntity accountEntity=entityManager.find(AccountEntity.class, accountId);

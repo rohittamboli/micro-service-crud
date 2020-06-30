@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -71,11 +72,23 @@ public class AccountApi {
 		ResponseEntity<String> responseEntity=null;
 		String message=null;
 		
-		accountService.updateAccount(accountId, account.getBalance());
+		accountService.updateAccount(accountId, account);
 		
 		message=environment.getProperty("ACCOUNT_API.SUCCESSFUL_UPDATION");
 		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);
 		
+		return responseEntity;
+	}
+	
+	
+	@PatchMapping("/patchAccount/account/{accountId}")
+	public ResponseEntity<String> patchAccountHolder(@RequestBody Account account, @PathVariable Integer accountId){
+		ResponseEntity<String> responseEntity=null;
+		String message=null;
+		
+		accountService.patchAccount(accountId, account.getBalance());
+		message=environment.getProperty("ACCOUNT_API.SUCCESSFUL_PATCH");
+		responseEntity=new ResponseEntity<String>(message, HttpStatus.OK);
 		return responseEntity;
 	}
 	}
